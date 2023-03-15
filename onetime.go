@@ -238,7 +238,7 @@ func Show(w http.ResponseWriter, req *http.Request) {
 	}
 	validity_period := ""
 	if tok.Activated.Year() > 1970 {
-		validity_period = "<dt>Valid until</dt><dd>" +
+		validity_period = "<dt>有效至(Valid until)</dt><dd>" +
 			isotime(tok.Activated.Add(TOKEN_VAL)) +
 			"</dd>"
 	}
@@ -277,18 +277,19 @@ Download
 </head>
 <body>
     <div id="main">
-    <p id="top">A file is ready to be retrieved:</p>
+    <p id="top">一个文件准备下载 (A file is ready to be retrieved):</p>
     <dl>
-        <dt>Name</dt>
+        <dt>文件名 (Name)</dt>
         <dd>%s</dd>
-        <dt>Size</dt>
-        <dd>%s bytes</dd>
+        <dt>文件大小 (Size)</dt>
+        <dd>%s 字节(bytes)</dd>
         %s
-        <dt>Link</dt>
-        <dd><a href="/d/%s">Click here to start downloading</a></dd>
+        <dt>链接 (Link)</dt>
+        <dd><a href="/d/%s">点击这里下载Click here to start downloading</a></dd>
     </dl>
     </div>
     <p id="disclaimer">
+    此链接为单次有效,  链接在第一次点击下载后, 保持4个小时有效.
     This link is only valid once. It will remain valid up to four hours
     after it has first been clicked.
     </p>
